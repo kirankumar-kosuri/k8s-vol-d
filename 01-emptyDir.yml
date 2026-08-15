@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: emptyDir
+  name: emptydir-demo
   namespace: default
 spec:
   containers:
@@ -10,6 +10,7 @@ spec:
     volumeMounts:
     - mountPath: /var/log/nginx
       name: nginx-logs
+
   - name: almalinux
     image: almalinux:9
     volumeMounts:
