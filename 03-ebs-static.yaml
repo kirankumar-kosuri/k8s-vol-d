@@ -34,6 +34,8 @@ spec:
   containers:
   - name: nginx
     image: nginx
+  nodeSelector:
+    kubernetes.io/zone: us-east-1c
     volumeMounts:
     - name: nginx-html
       mountPath: /usr/share/nginx/html
@@ -41,5 +43,5 @@ spec:
   - name: nginx-html
     persistentVolumeClaim:
       claimName: ebs-static
-      
+
  
