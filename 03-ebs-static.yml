@@ -56,6 +56,7 @@ kind: Service
 metadata:
   name: nginx-ebs-static
 spec:
+  type: LoadBalancer
   selector:
     project: roboshop
     component: nginx
