@@ -35,7 +35,7 @@ spec:
   - name: nginx
     image: nginx
   nodeSelector: 
-    topology.kubernetes.io/zone: us-east-1d
+    topology.kubernetes.io/zone: us-east-1f
     volumeMounts:
     - name: nginx-html
       mountPath: /usr/share/nginx/html
