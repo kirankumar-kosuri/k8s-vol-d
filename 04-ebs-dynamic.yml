@@ -5,3 +5,15 @@ metadata:
 reclaimPolicy: Delete
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-dynamic
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: roboshop-ebs
+  resources:
+    requests:
+      storage: 5Gi
