@@ -45,7 +45,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    purpose: nginx-svc
+    purpose: nginx-ebs-dynamic
   ports:
   - protocol: TCP
     port: 80
