@@ -9,7 +9,7 @@ spec:
     matchLabels:
       project: roboshop
       purpose: nginx-headless-demo
-    template:
+  template:
       metadata:
         labels:
           project: roboshop
