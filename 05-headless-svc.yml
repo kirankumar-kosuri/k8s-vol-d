@@ -3,24 +3,21 @@ kind: Deployment
 metadata:
   name: nginx
   namespace: roboshop
-  labels:
-    project: roboshop
-    purpose: headless-svc-demo
 spec:
   replicas: 4
   selector:
     matchLabels:
       project: roboshop
-      purpose: headless-svc-demo
-  template:
-    metadata:
-      labels:
-        project: roboshop
-        purpose: headless-svc-demo
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
+      purpose: nginx-headless-demo
+    template:
+      metadata:
+        labels:
+          project: roboshop
+          purpose: nginx-headless-demo
+      spec:
+        containers:
+        - name: nginx
+          image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
@@ -30,22 +27,7 @@ metadata:
 spec:
   selector:
     project: roboshop
-    purpose: headless-svc-demo
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-headless
-  namespace: roboshop
-spec:
-  clusterIP: None
-  selector:
-    project: roboshop
-    purpose: headless-svc-demo
+    purpose: nginx-headless-demo
   ports:
   - protocol: TCP
     port: 80
