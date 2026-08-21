@@ -10,8 +10,8 @@ spec:
       project: roboshop
       purpose: nginx-headless-demo
   template:
-      metadata:
-        labels:
+     metadata:
+      labels:
           project: roboshop
           purpose: nginx-headless-demo
       spec:
@@ -25,6 +25,7 @@ metadata:
   name: nginx
   namespace: roboshop
 spec:
+  clusterIP: None
   selector:
     project: roboshop
     purpose: nginx-headless-demo
