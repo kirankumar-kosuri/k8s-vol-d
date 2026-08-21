@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: roboshop
+  labels:
+    project: roboshop
+    purpose: headless-svc-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: headless-svc-demo
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        purpose: headless-svc-demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  selector:
+    project: roboshop
+    purpose: headless-svc-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
