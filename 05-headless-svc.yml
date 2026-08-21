@@ -10,11 +10,11 @@ spec:
       project: roboshop
       purpose: nginx-headless-demo
   template:
-     metadata:
-      labels:
+    metadata:
+     labels:
           project: roboshop
           purpose: nginx-headless-demo
-      spec:
+     spec:
         containers:
         - name: nginx
           image: nginx:latest
